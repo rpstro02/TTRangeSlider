@@ -41,7 +41,8 @@ IB_DESIGNABLE
  * Each handle in the slider has a label above it showing the current selected value. By default, this is displayed as a decimal format.
  * You can override this default here by supplying your own NSNumberFormatter. For example, you could supply an NSNumberFormatter that has a currency style, or a prefix or suffix.
  * If this property is nil, the default decimal format will be used. Note: If you want no labels at all, please use the hideLabels flag. */
-@property (nonatomic, strong) NSNumberFormatter *numberFormatterOverride;
+@property (nonatomic, strong) NSNumberFormatter *minNumberFormatterOverride;
+@property (nonatomic, strong) NSNumberFormatter *maxNumberFormatterOverride;
 
 /**
  * Hides the labels above the slider controls. YES = labels will be hidden. NO = labels will be shown. Default is NO.
@@ -58,20 +59,6 @@ IB_DESIGNABLE
  */
 @property (nonatomic, strong) IBInspectable UIColor *maxLabelColour;
 
-/**
- * The color of both handles. If not set, the default is the tintColor.
- */
-@property (nonatomic, strong) IBInspectable UIColor *handleColor;
-
-/**
- * The color of the left handle. If not set, the default is the tintColor.
- */
-@property (nonatomic, strong) IBInspectable UIColor *minHandleColor;
-
-/**
- * The color of the right handle. If not set, the default is the tintColor.
- */
-@property (nonatomic, strong) IBInspectable UIColor *maxHandleColor;
 
 /**
  * The font of the minimum value text label. If not set, the default is system font size 12.
@@ -130,15 +117,14 @@ IB_DESIGNABLE
 @property (nonatomic, assign) IBInspectable CGFloat labelPadding;
 
 /**
- *Set padding on left and right side of slider line (default 16.0)
- */
-@property (nonatomic, assign) IBInspectable CGFloat barSidePadding;
-
-/**
  *Handle slider with custom image, you can set custom image for your handle
  */
 @property (nonatomic, strong) UIImage *handleImage;
 
+/**
+ *Handle slider with custom color, you can set custom color for your handle
+ */
+@property (nonatomic, strong) UIColor *handleColor;
 
 /**
  *Handle slider with custom border color, you can set custom border color for your handle
@@ -192,16 +178,5 @@ typedef NS_ENUM(NSInteger, LabelPosition) {
  *Set the label positions (default LabelPositionAbove)
  */
 @property (nonatomic, assign) LabelPosition labelPosition;
-
-/**
- *Set radius of the shadow for handle. Also used for setting shadow offset value
- */
-
-@property (nonatomic, assign) IBInspectable CGFloat shadowRadius;
-
-/**
- *Set the opacity of the shadow for handle
- */
-@property (nonatomic, assign) IBInspectable float shadowOpacity;
 
 @end
